@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gcbot-deployment
+  labels:
+    app: gcbot
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: gcbot
+  template:
+    metadata:
+      labels:
+        app: gcbot
+    spec:
+      containers:
+      - name: gcbot
+        image: docker.pkg.github.com/sytone/godless-coliseum-discord-bot/godless-coliseum-discord-bot:master
+        imagePullPolicy: Always
+        env:
+          - name: DISCORD_TOKEN
+            valueFrom:
+              secretKeyRef:
+                name: gc-discord
+                key: discord-token
+      imagePullSecrets:
+      - name: regcred
+ 

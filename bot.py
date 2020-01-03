@@ -31,10 +31,10 @@ async def nine_nine(ctx):
     response = random.choice(brooklyn_99_quotes)
     await ctx.send(response)
 
-@bot.command(name='avraegvar', help='Call Avrae to get GVar list')
-async def avrae_gvar(ctx):
+@bot.command(name='sytone', help='General bot information')
+async def general_sytone(ctx):
 
-    await ctx.send("!gvar create 'fred'")
+    await ctx.send("He is my creator, at some point I may know more about him...")
 
 
 bot.run(token)
